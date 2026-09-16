@@ -49,12 +49,13 @@ This project implements an automated **Daily Operational AML Rule Engine**. It s
           │
           ▼
 [ Power BI MI Operations Dashboard (Viz.pbix) ]
+```
 
-🔍 Technical Deep Dive: The SQL Rule Logic
-1. Rapid Movement Detection (SQL Window Function)
+## 🔍 Technical Deep Dive: The SQL Rule Logic
+### 1. Rapid Movement Detection (SQL Window Function)
 Uses DuckDB's LAG() window function to calculate the exact minute delta between sequential deposits and withdrawals per user:
 
-SQL
+```SQL
 WITH ranked_transactions AS (
     SELECT 
         user_id, transaction_id, transaction_type, amount,
@@ -67,8 +68,10 @@ SELECT * FROM ranked_transactions
 WHERE transaction_type = 'Withdrawal'
   AND prev_tx_type IN ('Manual Deposit', 'Autosave Deposit')
   AND date_diff('minute', prev_tx_timestamp, tx_timestamp) <= 15;
-📂 Project Repository Structure
-Plaintext
+```
+
+## 📂 Project Repository Structure
+```Plaintext
 Dashboard/
 │
 ├── README.md                 # Complete project documentation and executive summary
@@ -79,20 +82,28 @@ Dashboard/
 ├── master_fincrime_alerts.csv # Consolidated AML risk alerts dataset
 ├── users.csv                 # Synthetic user profiles & KYC status dataset
 └── transactions.csv          # Synthetic transaction ledger
-🚀 How to Run This Project Locally
+```
+
+## 🚀 How to Run This Project Locally
 Clone the Repository:
 
-Bash
+```Bash
 git clone [https://github.com/avelino1999/Dashboard.git](https://github.com/avelino1999/Dashboard.git)
 cd Dashboard
+```
+
 Generate the Datasets:
 
-Bash
+```Bash
 python "import pandas as pd.py"
+```
+
 Run the DuckDB AML Engine:
 
-Bash
+```Bash
 python sql.py
+```
+
 This outputs master_fincrime_alerts.csv containing all flagged operational alerts.
 
 View the Dashboard:
