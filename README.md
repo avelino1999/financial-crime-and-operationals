@@ -28,15 +28,16 @@ Without automated daily operational controls, financial crime risks can pass thr
 
 ---
 
-## 📂 Repository Structure
-├── data/
-│   ├── users.csv
-│   └── transactions.csv
-├── sql/
-│   └── aml_rule_engine.sql
-├── scripts/
-│   ├── generate_data.py
-│   └── run_duckdb_aml.py
-├── master_fincrime_alerts.csv
-├── Chip_FinCrime_Dashboard.pbix
-└── README.md
+## 📂 Project Repository Structure
+
+
+Dashboard/
+│
+├── README.md                 # Project documentation and executive summary
+├── Viz.pbix                  # Power BI dashboard source file
+├── Viz.pdf                   # Exported PDF version of the Power BI dashboard
+├── sql.py                    # DuckDB / SQL operational AML rule engine
+├── import pandas as pd.py    # Synthetic FinTech data generation script
+├── master_fincrime_alerts.csv # Consolidated AML risk alerts dataset
+├── users.csv                 # Synthetic user profile & KYC status data
+└── transactions.csv          # Synthetic transaction ledger
