@@ -1,24 +1,24 @@
-# 🛡️ Chip — Financial Crime & Operational AML Monitoring Engine
+#  Chip — Financial Crime & Operational AML Monitoring Engine
 
 > **Automated Anti-Money Laundering (AML) monitoring pipeline & Management Information (MI) dashboard engineered for digital wealth operations.**
 
 ---
 
-## 📋 Non-Technical Overview (For Stakeholders & Operations Leads)
+##  Non-Technical Overview (For Stakeholders & Operations Leads)
 
-### 📌 Business Context
+###  Business Context
 As a UK wealth super-app, **Chip** processes high-frequency deposits, automated micro-saves, and withdrawals across savings accounts and investment funds. Operating in FinTech requires strict, automated compliance controls to detect suspicious money movements, fulfill regulatory AML obligations, and protect the platform from financial crime—without creating friction for everyday users.
 
-### 🎯 What This System Solves
+###  What This System Solves
 This project implements an automated **Daily Operational AML Rule Engine**. It scans incoming transaction logs to detect high-risk activity in real time, automatically triaging suspicious cases into an operational review queue:
 
-1. ⏱️ **Rapid Movement of Funds (Pass-Through Risk):** Flags full withdrawals occurring within **15 minutes** of a major deposit—a key sign of pass-through account misuse or money laundering.
-2. 🔄 **Structuring / "Smurfing" Patterns:** Detects users making **10+ small deposits under £100** within a short period to intentionally evade single-transaction alert thresholds.
-3. 🚨 **Unverified High-Value Exposure:** Catches high-value deposits (**£5,000+**) entering accounts where Identity Verification (KYC) is still **Pending** or has **Failed**.
+1.  **Rapid Movement of Funds (Pass-Through Risk):** Flags full withdrawals occurring within **15 minutes** of a major deposit—a key sign of pass-through account misuse or money laundering.
+2.  **Structuring / "Smurfing" Patterns:** Detects users making **10+ small deposits under £100** within a short period to intentionally evade single-transaction alert thresholds.
+3.  **Unverified High-Value Exposure:** Catches high-value deposits (**£5,000+**) entering accounts where Identity Verification (KYC) is still **Pending** or has **Failed**.
 
 ---
 
-## 📊 Key Operational Insights & MI Summary
+##  Key Operational Insights & MI Summary
 
 * **Total Financial Exposure Identified:** **£24,852** across **28 flagged alerts**.
 * **Primary Risk Vector:** Rapid Movement of Funds represented over **90%** of all flagged operational anomalies.
@@ -26,7 +26,7 @@ This project implements an automated **Daily Operational AML Rule Engine**. It s
 
 ---
 
-## 🛠️ Technical Architecture & Stack (For Engineers & Analysts)
+##  Technical Architecture & Stack (For Engineers & Analysts)
 
 ### Tech Stack
 * **Language:** Python (`pandas`, `numpy`)
@@ -70,7 +70,7 @@ WHERE transaction_type = 'Withdrawal'
   AND date_diff('minute', prev_tx_timestamp, tx_timestamp) <= 15;
 ```
 
-## 📂 Project Repository Structure
+##  Project Repository Structure
 ```Plaintext
 Dashboard/
 │
@@ -84,7 +84,7 @@ Dashboard/
 └── transactions.csv          # Synthetic transaction ledger
 ```
 
-## 🚀 How to Run This Project Locally
+##  How to Run This Project Locally
 Clone the Repository:
 
 ```Bash
